@@ -27,4 +27,4 @@ jobs:
         with:
           arguments: build
       - name: Run test
-        run: ./src/test/java/Sampletest
+        run: npm test
