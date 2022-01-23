@@ -30,7 +30,7 @@ public class Sampletest {
                 .header("Authorization", "Bearer 39856e05ce7d1e8b73a9e56bdd5becb67ff2d4bf89faff36950d1a7ff258663d")
                 .body("{\n" +
                         "\t\"name\":\"Philip Boston\",\n" +
-                        "\t\"email\": \"philip23@gmail.com\",\n" +
+                        "\t\"email\": \"philip24@gmail.com\",\n" +
                         "\t\"gender\": \"male\",\n" +
                         "\t\"status\": \"active\"\n" +
                         "}")
@@ -40,6 +40,7 @@ public class Sampletest {
                     .statusCode(201)
                     .log().body()
                     .body("data.id", Matchers.notNullValue())
-                    .body("data.email", Matchers.equalTo("philip23@gmail.com"));
+                    .body("data.name", Matchers.equalTo("Philip Boston"))
+                    .body("data.email", Matchers.equalTo("philip24@gmail.com"));
     }
 }
