@@ -26,7 +26,7 @@ public class Sampletest {
                 .header("Authorization", "Bearer 39856e05ce7d1e8b73a9e56bdd5becb67ff2d4bf89faff36950d1a7ff258663d")
                 .body("{\n" +
                         "\t\"name\":\"Philip Boston\",\n" +
-                        "\t\"email\": \"philip18@gmail.com\",\n" +
+                        "\t\"email\": \"philip20@gmail.com\",\n" +
                         "\t\"gender\": \"male\",\n" +
                         "\t\"status\": \"active\"\n" +
                         "}")
