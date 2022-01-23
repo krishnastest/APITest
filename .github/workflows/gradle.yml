@@ -27,4 +27,4 @@ jobs:
         with:
           arguments: build
       - name: Run test
-        run: npm test
+        run: gradle clean test
