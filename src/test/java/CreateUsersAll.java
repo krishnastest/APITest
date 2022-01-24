@@ -13,7 +13,7 @@ public class CreateUsersAll {
         //1. Arrange
         String body = "{\n" +
                 "\t\"name\":\"Philip Boston\",\n" +
-                "\t\"email\": \"philip28@gmail.com\",\n" +
+                "\t\"email\": \"philip30@gmail.com\",\n" +
                 "\t\"gender\": \"male\",\n" +
                 "\t\"status\": \"active\"\n" +
                 "}";
@@ -27,7 +27,7 @@ public class CreateUsersAll {
                 .log().body()
                 .body("data.id", Matchers.notNullValue())
                 .body("data.name", Matchers.equalTo("Philip Boston"))
-                .body("data.email", Matchers.equalTo("philip28@gmail.com"));
+                .body("data.email", Matchers.equalTo("philip30@gmail.com"));
     }
 
     @Test
@@ -35,7 +35,7 @@ public class CreateUsersAll {
         //1. Arrange
         String body = "{\n" +
                 "\t\"name\":\"Dua Lipa\",\n" +
-                "\t\"email\": \"dualipa31@gmail.com\",\n" +
+                "\t\"email\": \"dualipa33@gmail.com\",\n" +
                 "\t\"gender\": \"female\",\n" +
                 "\t\"status\": \"active\"\n" +
                 "}";
@@ -49,7 +49,7 @@ public class CreateUsersAll {
                 .log().body()
                 .body("data.id", Matchers.notNullValue())
                 .body("data.name", Matchers.equalTo("Dua Lipa"))
-                .body("data.email", Matchers.equalTo("dualipa31@gmail.com"));
+                .body("data.email", Matchers.equalTo("dualipa33@gmail.com"));
     }
 
     private Response createUser(String body) {
