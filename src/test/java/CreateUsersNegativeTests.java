@@ -16,12 +16,11 @@ public class CreateUsersNegativeTests {
     @Test
     public void createUserFailForInvalidEmail(){
         //1. Arrange
-        String name = "Dua Lipa";
-        String email = "dua.lipa.33";
-        String gender = "female";
-        String status = "active";
 
-        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, email, gender, status);
+        CreateUserRequestBody requestBody = CreateUserRequestBody.builder()
+                .name("Dua Lipa").email("dua.lipa.33")
+                .gender("female").status("active").build();
+
         //2. Act
         usersClient.createUser(requestBody)
                 .then()
