@@ -4,9 +4,11 @@ import org.hamcrest.Matchers;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.UsersClient;
+import users.create.CreateUserRequestBody;
 
 import java.util.UUID;
 
+import static io.restassured.RestAssured.defaultParser;
 import static io.restassured.RestAssured.given;
 
 public class CreateUsersAll {
@@ -23,22 +25,21 @@ public class CreateUsersAll {
 
         //1. Arrange
         String email= String.format("%s@gmail.com", UUID.randomUUID());
-        String body = String.format("{\n" +
-                "\t\"name\":\"Philip Boston\",\n" +
-                "\t\"email\": \"%s\",\n" +
-                "\t\"gender\": \"male\",\n" +
-                "\t\"status\": \"active\"\n" +
-                "}", email);
+        String name = "Philip Boston";
+        String gender = "male";
+        String status = "active";
+
+        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, email, gender, status);
 
         //2. Act
-        usersClient.createUser(body)
+        usersClient.createUser(requestBody)
                 .then()
 
         //3. Assert
                 .statusCode(201)
                 .log().body()
                 .body("data.id", Matchers.notNullValue())
-                .body("data.name", Matchers.equalTo("Philip Boston"))
+                .body("data.name", Matchers.equalTo(name))
                 .body("data.email", Matchers.equalTo(email));
     }
 
@@ -46,15 +47,14 @@ public class CreateUsersAll {
     public void createFemaleUser(){
         //1. Arrange
         String email = String.format("%s@gmail.com", UUID.randomUUID());
-        String body = String.format("{\n" +
-                "\t\"name\":\"Dua Lipa\",\n" +
-                "\t\"email\": \"%s\",\n" +
-                "\t\"gender\": \"female\",\n" +
-                "\t\"status\": \"active\"\n" +
-                "}", email);
+        String name = "Dua Lipa";
+        String gender = "female";
+        String status = "active";
+
+        CreateUserRequestBody requestBody = new CreateUserRequestBody(name, email, gender, status);
 
         //2. Act
-        usersClient.createUser(body)
+        usersClient.createUser(requestBody)
                 .then()
 
         //3. Assert
