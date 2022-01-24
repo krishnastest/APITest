@@ -1,8 +1,16 @@
 import org.hamcrest.Matchers;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import users.UsersClient;
 
 public class CreateUsersNegativeTests {
+
+    private UsersClient usersClient;
+
+    @BeforeClass
+    public void beforeClass(){
+        usersClient = new UsersClient();
+    }
 
     @Test
     public void createUserFailForInvalidEmail(){
@@ -14,7 +22,7 @@ public class CreateUsersNegativeTests {
                 "\t\"status\": \"active\"\n" +
                 "}";
         //2. Act
-        new UsersClient().createUser(body)
+        usersClient.createUser(body)
                 .then()
                 .log().body()
 
